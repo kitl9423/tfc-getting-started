@@ -30,6 +30,16 @@ resource "fakewebservices_server" "servers" {
   vpc  = fakewebservices_vpc.primary_vpc.name
 }
 
+resource "fakewebservices_server" "server-3" {
+  name = "Server 3"
+  type = "t2.macro"
+}
+
+resource "fakewebservices_server" "server-4" {
+  name = "Server 4"
+  type = "t2.macro"
+}
+
 resource "fakewebservices_load_balancer" "primary_lb" {
   name    = "Primary Load Balancer"
   servers = fakewebservices_server.servers[*].name
